@@ -5,8 +5,8 @@ import RPi.GPIO as GPIO
 import paho.mqtt.client as mqtt    
 import time
 
-# Init the Sensor pin SHOULD BE DIFFERENT for IR OUTSIDE
-sensor = 16
+# Init the Outside Sensor pin # NOT GPIO #
+sensor = 36
 led = 18
 
 # Init people
@@ -21,7 +21,7 @@ GPIO.setup(led, GPIO.OUT)
 # Init the broker (api): comm b/w publisher & subscriber
 mqttBroker = "mqtt.eclipseprojects.io"
 # Inside Bus Sensor Publishing
-client = mqtt.Client("Inside_IR")
+client = mqtt.Client("Outside_IR")
 # Connect to the Broker (Host Website)
 client.connect(mqttBroker)
 
@@ -42,7 +42,7 @@ try:
             # Sensor is on
             while GPIO.input(sensor) == GPIO.LOW:
                 # Keep the LED on
-                print("1")
+                print("Outside")
                 GPIO.output(led, True)
                 # Publish to People Topic
                 people+=1

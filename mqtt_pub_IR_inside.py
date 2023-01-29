@@ -5,7 +5,7 @@ import RPi.GPIO as GPIO
 import paho.mqtt.client as mqtt    
 import time
 
-# Init the Sensor pin 
+# Init the Inside Sensor pin # NOT GPIO #
 sensor = 16
 led = 18
 
@@ -42,7 +42,7 @@ try:
             # Sensor is on
             while GPIO.input(sensor) == GPIO.LOW:
                 # Keep the LED on
-                print("1")
+                print("Inside")
                 GPIO.output(led, True)
                 # Publish to People Topic
                 people+=1
