@@ -16,5 +16,12 @@ client.loop_start()
 client.subscribe("PEOPLE")
 # Recieved message
 client.on_message = on_message
+# ENTER CODE HERE Subtract people if IR_inside then IR_Outside
+
+
+# ENTER CODE HERE Add if IR_outside then IR_inside
+
+
+
 time.sleep(30)
 client.loop_end()
